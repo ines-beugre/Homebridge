@@ -8,8 +8,11 @@ To run it, first, install and run MongoDB Entreprise like as shown on this link 
 In Postman (to get it https://www.getpostman.com/), you can 
   * create a new person
     url: localhost:8080/person/create
+    
     method: POST
+    
     body:
+    
      {
       "id": "5b11587bc71ab80be1ea5423", 
       "image": "imageToBase64", 
