@@ -4,8 +4,8 @@ This folder represents the server of a Trombinoscope allowing to create a person
 his favorite color, his welcome message, his email and his picture.
 This server is linked to a document-oriented database MongoDB.
 
-To run it, first, install and run MongoDB Entreprise like as shown on this link https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-os-x/
-In Postman (to get it https://www.getpostman.com/), you can 
+To run it, first, install and run MongoDB Entreprise like as shown on this link https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-os-x/.  
+In Postman (to get it https://www.getpostman.com/), you can   
   * create a new person
     url: localhost:8080/person/create
     method: POST 
