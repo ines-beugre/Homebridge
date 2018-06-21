@@ -25,31 +25,31 @@ In Postman (to get it https://www.getpostman.com/), you can
       "email": "bob.smith@yahoo.fr"  
      } 
     
-  * get list of person presented in database
-    url: localhost:8080/person/list
-    method: GET
+  * get list of person presented in database   
+    url: localhost:8080/person/list  
+    method: GET.
     
-  * modify person informations
-    url: localhost:8080/person/modify
-    method: POST
-    body:
-     {
-      "id": "5b11587bc71ab80be1ea5423",
-      "image": "imageToBase64",
-      "name": "bob laurent smith",
-      "color": [
+  * modify person informations  
+    url: localhost:8080/person/modify  
+    method: POST  
+    body:  
+     {  
+      "id": "5b11587bc71ab80be1ea5423",  
+      "image": "imageToBase64",  
+      "name": "bob laurent smith",  
+      "color": [  
           0,
           10,
           10
-      ],
-      "welcomeMsg": "hello",
-      "email": "bob.smith@yahoo.fr"
+      ],  
+      "welcomeMsg": "hello",  
+      "email": "bob.smith@yahoo.fr"  
      }
   
-  * delete a person from database 
-    url: localhost:8080/person/delete/bob.smith@yahoo.fr
-    method: DELETE
+  * delete a person from database   
+    url: localhost:8080/person/delete/bob.smith@yahoo.fr  
+    method: DELETE  
     
- * display a person (according to his email address)
-    url: localhost:8080/person/email?email=alice.smith@serli.com
+ * display a person (according to his email address)  
+    url: localhost:8080/person/email?email=alice.smith@serli.com  
     method: GET
