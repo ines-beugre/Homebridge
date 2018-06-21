@@ -12,7 +12,7 @@ In Postman (to get it https://www.getpostman.com/), you can
     body:
      {
       "id": "5b11587bc71ab80be1ea5423",
-      "image": "<imageToBase64>",
+      "image": "imageToBase64",
       "name": "bob smith",
       "color": [
           0,
@@ -33,7 +33,7 @@ In Postman (to get it https://www.getpostman.com/), you can
     body:
      {
       "id": "5b11587bc71ab80be1ea5423",
-      "image": "<imageToBase64>",
+      "image": "imageToBase64",
       "name": "bob laurent smith",
       "color": [
           0,
