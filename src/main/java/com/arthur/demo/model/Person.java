@@ -8,7 +8,9 @@ public class Person {
 
     @Id
     private String id;
-    private String name;
+    private String firstname;
+    private String lastname;
+    private String occupation;
     private String color;
     private String welcomeMsg;
     @Indexed(unique = true)
@@ -20,8 +22,11 @@ public class Person {
     public Person(){
     }
 
-    public Person(String name, String color, String welcomeMsg, String email, String image) {
-        this.name = name;
+    public Person(String id, String firstname, String lastname, String occupation, String color, String welcomeMsg, String email, String image) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.occupation = occupation;
         this.color = color;
         this.welcomeMsg = welcomeMsg;
         this.email = email;
@@ -43,11 +48,17 @@ public class Person {
 
     public void setImage(String image) { this.image = image; }
 
-    public String getName() { return name; }
+    public String getFirstname() { return firstname; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setFirstname(String firstName) { this.firstname = firstName; }
+
+    public String getLastname() { return lastname; }
+
+    public void setLastname(String lastName) { this.lastname = lastName; }
+
+    public String getOccupation() { return occupation; }
+
+    public void setOccupation(String occupation) { this.occupation = occupation; }
 
     public String getColor() {
         return color;

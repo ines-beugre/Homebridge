@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//@CrossOrigin(origins = "http://192.168.86.14:3000")
 @CrossOrigin(origins = "http://localhost:3000")
+
+
 @RestController
 @RequestMapping("/person")
 public class PersonController {
@@ -44,37 +47,10 @@ public class PersonController {
         return person;
     }
 
-//    @RequestMapping(value = "/create", method = RequestMethod.POST)
-//    @ResponseBody
-//    public String createPerson(@RequestBody Person person) throws Exception {
-//
-//        String message;
-//        System.out.println(person.getEmail());
-//
-//        if (!(personService.existPerson(person.getEmail()))) {
-//            this.personService.addPerson(person);
-//
-//            message = "Person with 'name: " + person.getName() +
-//                    "\ncolor: " + person.getColor() +
-//                    "\nwelcomeMsg: "  + person.getWelcomeMsg() +
-//                    "\nemail: " + person.getEmail() + "' is created";
-//
-//        } else {
-//
-//            message = "Person with name: '" + person.getName() +
-//                    "\ncolor: " + person.getColor() +
-//                    "\nwelcomeMsg: "  + person.getWelcomeMsg() +
-//                    "\nemail: " + person.getEmail() + "'already exists in the DB";
-//            throw new Exception(message);
-//        }
-//        return message;
-//    }
-
     /**
      * Display a person's profile or find a person according his id
      */
     @RequestMapping(value = "email", method = RequestMethod.GET)
-    //@RequestBody
     public Person displayProfile(@RequestParam String email) {
 
         String message = null;
@@ -109,7 +85,6 @@ public class PersonController {
     }
 
 
-
     /**
      * Remove a person
      */
@@ -120,10 +95,19 @@ public class PersonController {
         Person personDeleted = this.personService.deletePerson(email);
 
         if (personDeleted != null) {
-            message = "Person " + personDeleted.getName() + " has been deleted";
+            message = "Person " + personDeleted.getFirstname() + " " + personDeleted.getLastname() + " has been deleted";
         } else {
             message = "Person " + email + " does'nt exist in the DB";
         }
         return message;
+    }
+
+    /**
+     * Check a person in DB
+     */
+    @RequestMapping(value = "/verification/{email}", method = RequestMethod.GET)
+    public boolean existPerson( String email) {
+
+        return this.personService.existPerson(email);
     }
 }

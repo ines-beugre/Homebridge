@@ -27,15 +27,6 @@ public class HomebridgeApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
- //       personRepository.deleteAll();
-        //        personRepository.save(new Person("bu", new int[] {0, 50, 100}, "hello", "u@yahoo.fr" ));
-//        personRepository.save(new Person("ba", new int[] {0, 10, 100}, "hello", "a@yahoo.fr" ));
-//        personRepository.save(new Person("be", new int[] {0, 10, 100}, "hello", "e@yahoo.fr" ));
-//
-//        for (Person person: personRepository.findAll()){
-//            System.out.println("*****" + person.getName());
-//        }
-
     }
 
 }

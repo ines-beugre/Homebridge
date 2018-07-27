@@ -40,7 +40,9 @@ public class PersonService {
         Person personToUpdate = personRepository.findByEmail(person.getEmail());
 
         if(personToUpdate != null){
-            personToUpdate.setName(person.getName());
+            personToUpdate.setFirstname(person.getFirstname());
+            personToUpdate.setLastname(person.getLastname());
+            personToUpdate.setOccupation(person.getOccupation());
             personToUpdate.setColor(person.getColor());
             personToUpdate.setWelcomeMsg(person.getWelcomeMsg());
             personToUpdate.setImage(person.getImage());
