@@ -50,11 +50,15 @@ public class Person {
 
     public String getFirstname() { return firstname; }
 
-    public void setFirstname(String firstName) { this.firstname = firstName; }
+    public void setFirstname(String firstName) {
+        this.firstname = firstName.replaceFirst(".",(firstName.charAt(0)+"").toUpperCase());
+    }
 
     public String getLastname() { return lastname; }
 
-    public void setLastname(String lastName) { this.lastname = lastName; }
+    public void setLastname(String lastName) {
+        this.lastname = lastName.replaceFirst(".",(lastName.charAt(0)+"").toUpperCase());
+    }
 
     public String getOccupation() { return occupation; }
 

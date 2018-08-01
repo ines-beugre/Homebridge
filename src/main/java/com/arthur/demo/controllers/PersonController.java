@@ -11,7 +11,6 @@ import java.util.List;
 //@CrossOrigin(origins = "http://192.168.86.14:3000")
 @CrossOrigin(origins = "http://localhost:3000")
 
-
 @RestController
 @RequestMapping("/person")
 public class PersonController {
@@ -27,7 +26,26 @@ public class PersonController {
     @GetMapping("/list")
     public synchronized List<Person> getPersonList() {
 
-        return this.personService.getPersonList();
+        List<Person> personList = this.personService.getPersonList();
+        return personList;
+    }
+
+    /**
+     * Get sort ASC fistname
+     * */
+    @GetMapping("/sortfirstname")
+    public synchronized List<Person> getPersonByFistname(){
+        List<Person> sortFirstname = this.personService.sortByFirstname();
+        return sortFirstname;
+    }
+
+    /**
+     * Get sort ASC lastname
+     * */
+    @GetMapping("/sortlastname")
+    public synchronized List<Person> getPersonByLastname(){
+        List<Person> sortLastname = this.personService.sortByLastname();
+        return sortLastname;
     }
 
     /**

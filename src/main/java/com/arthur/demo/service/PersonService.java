@@ -3,6 +3,7 @@ package com.arthur.demo.service;
 import com.arthur.demo.model.Person;
 import com.arthur.demo.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import sun.jvm.hotspot.debugger.AddressException;
 
@@ -16,9 +17,24 @@ public class PersonService {
     PersonRepository personRepository;
 
     public List<Person> getPersonList(){
-
         return this.personRepository.findAll();
+//        return this.personRepository.findAll(new Sort(Sort.Direction.ASC, "lastname"));
     }
+
+    public List<Person> sortname(String column){
+        return this.personRepository.findAll(new Sort(Sort.Direction.ASC,column));
+
+    }
+
+    public List<Person> sortByLastname(){
+        return this.sortname("lastname");
+    }
+
+    public List<Person> sortByFirstname(){
+        return this.sortname("firstname");
+    }
+
+
 
     public void addPerson(Person person){
 
