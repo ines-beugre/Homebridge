@@ -42,6 +42,11 @@ public class PersonService {
             this.personRepository.save(person);
     }
 
+    public Person displayPersonById(String id){
+
+        return this.personRepository.findById(id).get();
+    }
+
     public Person deletePerson(String emailPerson){
 
         Person byEmail = personRepository.findByEmail(emailPerson);

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@CrossOrigin(origins = "http://192.168.86.14:3000")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
+//@CrossOrigin(origins = "http://localhost:3000")
 
 @RestController
 @RequestMapping("/person")
@@ -102,7 +102,6 @@ public class PersonController {
         return personUpdated;
     }
 
-
     /**
      * Remove a person
      */
@@ -127,5 +126,11 @@ public class PersonController {
     public boolean existPerson( String email) {
 
         return this.personService.existPerson(email);
+    }
+
+    @RequestMapping(value = "id", method = RequestMethod.GET)
+    public Person displayPersonById( String id) {
+
+        return this.personService.displayPersonById(id);
     }
 }
