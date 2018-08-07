@@ -24,7 +24,7 @@ public class Person {
 
 
     //Explicit constructor
-    public Person(){
+    public Person() {
     }
 
     public Person(String id, String firstname, String lastname, String occupation, String color, String welcomeMsg, String email, String image) {
@@ -69,35 +69,46 @@ public class Person {
         this.idMicrosoft = idMicrosoft;
     }
 
-    public String getImage() { return image; }
+    public String getImage() {
+        return image;
+    }
 
-    public void setImage(String image) { this.image = image; }
+    public void setImage(String image) {
+        this.image = image;
+    }
 
-    public String getFirstname() { return firstname; }
+    public String getFirstname() {
+        return firstname;
+    }
 
     public void setFirstname(String firstName) {
-        this.firstname = firstName.replaceFirst(".",(firstName.charAt(0)+"").toUpperCase());
+        this.firstname = firstName.replaceFirst(".", (firstName.charAt(0) + "").toUpperCase());
     }
 
-    public String getLastname() { return lastname; }
+    public String getLastname() {
+        return lastname;
+    }
 
     public void setLastname(String lastName) {
-        this.lastname = lastName.replaceFirst(".",(lastName.charAt(0)+"").toUpperCase());
+        this.lastname = lastName.replaceFirst(".", (lastName.charAt(0) + "").toUpperCase());
     }
 
-    public String getOccupation() { return occupation; }
+    public String getOccupation() {
+        return occupation;
+    }
 
-    public void setOccupation(String occupation) { this.occupation = occupation; }
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
 
     public String getColor() {
-        String firstChar = "#";
-        String newColor = firstChar.concat(color);
-        return newColor ;
-    }
-
+//        String firstChar = "#";
+//        String newColor = firstChar.concat(color);
+//        return newColor;
+        return color;}
     public void setColor(String color) {
-//        this.color = color;
-        this.color =  color.substring(1, color.length());
+        this.color = color;
+//        this.color = color.substring(1, color.length());
     }
 
     public String getWelcomeMsg() {

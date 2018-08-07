@@ -16,51 +16,50 @@ public class PersonService {
     @Autowired
     PersonRepository personRepository;
 
-    public List<Person> getPersonList(){
+    public List<Person> getPersonList() {
         return this.personRepository.findAll();
 //        return this.personRepository.findAll(new Sort(Sort.Direction.ASC, "lastname"));
     }
 
-    public List<Person> sortname(String column){
-        return this.personRepository.findAll(new Sort(Sort.Direction.ASC,column));
+    public List<Person> sortname(String column) {
+        return this.personRepository.findAll(new Sort(Sort.Direction.ASC, column));
 
     }
 
-    public List<Person> sortByLastname(){
+    public List<Person> sortByLastname() {
         return this.sortname("lastname");
     }
 
-    public List<Person> sortByFirstname(){
+    public List<Person> sortByFirstname() {
         return this.sortname("firstname");
     }
 
 
-
-    public void addPerson(Person person){
+    public void addPerson(Person person) {
 
         if (isValidEmailAddress(person.getEmail()))
             this.personRepository.save(person);
     }
 
-    public Person displayPersonById(String id){
+    public Person displayPersonById(String id) {
 
         return this.personRepository.findById(id).get();
     }
 
-    public Person deletePerson(String emailPerson){
+    public Person deletePerson(String emailPerson) {
 
         Person byEmail = personRepository.findByEmail(emailPerson);
-        if(byEmail != null){
+        if (byEmail != null) {
             this.personRepository.delete(byEmail);
         }
         return byEmail;
     }
 
-    public Person updatePerson(Person person){
+    public Person updatePerson(Person person) {
 
         Person personToUpdate = personRepository.findByEmail(person.getEmail());
 
-        if(personToUpdate != null){
+        if (personToUpdate != null) {
             personToUpdate.setFirstname(person.getFirstname());
             personToUpdate.setLastname(person.getLastname());
             personToUpdate.setOccupation(person.getOccupation());
@@ -69,15 +68,14 @@ public class PersonService {
             personToUpdate.setImage(person.getImage());
 
             this.personRepository.save(personToUpdate);
-        }
-        else{
+        } else {
             personToUpdate = person;
             this.personRepository.save(personToUpdate);
         }
-        return  personToUpdate;
+        return personToUpdate;
     }
 
-    public Person displayPerson(String email){
+    public Person displayPerson(String email) {
 
         return this.personRepository.findByEmail(email);
     }
@@ -85,7 +83,7 @@ public class PersonService {
     /*************/
 
     //verifie l'existence d'une personne dans la bd
-    public boolean existPerson(String email){
+    public boolean existPerson(String email) {
 
         return this.personRepository.findByEmail(email) != null;
     }

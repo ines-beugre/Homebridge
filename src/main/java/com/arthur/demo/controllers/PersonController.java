@@ -32,18 +32,18 @@ public class PersonController {
 
     /**
      * Get sort ASC fistname
-     * */
+     */
     @GetMapping("/sortfirstname")
-    public synchronized List<Person> getPersonByFistname(){
+    public synchronized List<Person> getPersonByFistname() {
         List<Person> sortFirstname = this.personService.sortByFirstname();
         return sortFirstname;
     }
 
     /**
      * Get sort ASC lastname
-     * */
+     */
     @GetMapping("/sortlastname")
-    public synchronized List<Person> getPersonByLastname(){
+    public synchronized List<Person> getPersonByLastname() {
         List<Person> sortLastname = this.personService.sortByLastname();
         return sortLastname;
     }
@@ -74,10 +74,9 @@ public class PersonController {
         String message = null;
         Person personToShowed = this.personService.displayPerson(email);
 
-        if (personService.existPerson(email)){
+        if (personService.existPerson(email)) {
             return personToShowed;
-        }
-        else{
+        } else {
             message = "' " + email + " ' does'nt exist in the DB";
         }
         return personToShowed;
@@ -93,10 +92,9 @@ public class PersonController {
         String message = null;
         Person personUpdated = this.personService.updatePerson(person);
 
-        if (personUpdated != null){
+        if (personUpdated != null) {
             message = "Data have been updated";
-        }
-        else{
+        } else {
             message = "' " + person.getEmail() + " ' does'nt exist in the DB";
         }
         return personUpdated;
@@ -123,13 +121,13 @@ public class PersonController {
      * Check a person in DB
      */
     @RequestMapping(value = "/verification/{email}", method = RequestMethod.GET)
-    public boolean existPerson( String email) {
+    public boolean existPerson(String email) {
 
         return this.personService.existPerson(email);
     }
 
     @RequestMapping(value = "id", method = RequestMethod.GET)
-    public Person displayPersonById( String id) {
+    public Person displayPersonById(String id) {
 
         return this.personService.displayPersonById(id);
     }
